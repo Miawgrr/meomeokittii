@@ -1,0 +1,8 @@
+{
+  "name": "meomeokitty",
+  "description": "Web chọn các bé iu và nuôi thú cưng ngọt ngào cùng mấy anh chồng",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

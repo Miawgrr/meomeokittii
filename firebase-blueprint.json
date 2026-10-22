@@ -1,0 +1,91 @@
+{
+  "entities": {
+    "user": {
+      "title": "User",
+      "description": "User profile with customizable fields",
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "URL of user photo or avatar"
+        },
+        "nameColor": {
+          "type": "string",
+          "description": "Hex or name color code for displaying name"
+        }
+      },
+      "required": ["displayName", "photoURL"]
+    },
+    "feelings_post": {
+      "title": "FeelingPost",
+      "description": "Confession sent from a user to a specific character or all of them",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Post ID"
+        },
+        "authorId": {
+          "type": "string",
+          "description": "User ID of the author, or 'anonymous'"
+        },
+        "authorName": {
+          "type": "string",
+          "description": "DisplayName of the author, or Nàng ẩn danh 🌸"
+        },
+        "authorAvatar": {
+          "type": "string",
+          "description": "Optional author profile image URL"
+        },
+        "authorEmail": {
+          "type": "string",
+          "description": "Optional author email address"
+        },
+        "content": {
+          "type": "string",
+          "description": "Confession message content"
+        },
+        "characterId": {
+          "type": "string",
+          "description": "ID of character target, or 'all'"
+        },
+        "characterName": {
+          "type": "string",
+          "description": "Name of character target, or Tất cả các chồng"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "Optional link to uploaded image/GIF on Google Drive"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp of publication"
+        },
+        "heartsCount": {
+          "type": "integer",
+          "description": "Number of heart reactions"
+        },
+        "likedBy": {
+          "type": "array",
+          "description": "Array of user UIDs who reacted to this post"
+        }
+      },
+      "required": ["id", "authorId", "authorName", "content", "characterId", "characterName", "timestamp", "heartsCount"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "user",
+      "description": "A collection storing individual user custom profiles"
+    },
+    "/feelings_posts/{postId}": {
+      "schema": "feelings_post",
+      "description": "A collection of user confessions and expressions of love"
+    }
+  }
+}
